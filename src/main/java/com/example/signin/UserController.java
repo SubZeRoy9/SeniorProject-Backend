@@ -14,7 +14,9 @@ public class UserController {
         this.userRepository = userRepository;
     }
 
-    /*POST	/api/auth/signup	signup new account
+    /*
+    Requests I need to map (I think).....
+    POST	/api/auth/signup	signup new account
     POST	/api/auth/signin	login an account
     POST	/api/auth/signout	logout the account
     GET	/api/test/all	retrieve public content
@@ -24,9 +26,8 @@ public class UserController {
      */
 
     @PostMapping("/signup")
-    @CrossOrigin(origins = "http://localhost:5173") // Replace with the actual origin of your React app
-    public String registerUser(@RequestBody User user) {
-        // Logic for registering the user, e.g., saving to the database
+    @CrossOrigin(origins = "http://localhost:5173") //Origin of react app
+    public String registerUser(@RequestBody User user) { //save user to database
         userRepository.save(user);
         return "User registered successfully";
     }
